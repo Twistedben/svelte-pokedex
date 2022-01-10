@@ -1,4 +1,7 @@
-
+<script>
+  import {pokemon} from "../stores/pokestore";
+  console.log('pokemon', $pokemon)
+</script>
 <svelte:head>
   <title>
     Pokedex - Find Pokemon
@@ -8,7 +11,5 @@
 <h1>Pokedex</h1>
 
 <style>
-  h1 {
-    color: red;
-  }
+
 </style>
