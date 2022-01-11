@@ -19,7 +19,7 @@
   </span>
   <input type="search" 
   placeholder="Search Pokemon" 
-  class="rounded-lg p-4 mx-2 focus:outline-transparent foucs:shadow-md focus:border-yellow-500 w-full border-2 border-yellow-400"
+  class="rounded-lg p-4 mx-2 focus:outline-transparent focus:bg-yellow-100 focus:shadow-sm focus:border-yellow-500 transition-colors ease-linear duration-300 w-full border-2 border-yellow-400"
   >
 </label>
 
