@@ -4,6 +4,17 @@
 
   let searchTerm = "";
   let filteredPokemon = [];
+
+  $: {
+    console.log(searchTerm)
+    if (searchTerm) {
+      filteredPokemon = $pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    } else {
+      filteredPokemon = [...$pokemons]
+    }
+
+  }
+
 </script>
 <svelte:head>
   <title>
@@ -17,15 +28,15 @@
   <span class="pl-4 font-semibold">
     Search for Pokemon
   </span>
-  <input type="search" 
+  <input bind:value={searchTerm} type="search" 
   placeholder="Search Pokemon" 
   class="rounded-lg p-4 mx-2 focus:outline-transparent focus:bg-yellow-100 focus:shadow-sm focus:border-yellow-500 transition-colors ease-linear duration-300 w-full border-2 border-yellow-400"
   >
 </label>
 
 <div class="py-2 grid gap-x-2 gap-y-6 md:grid-cols-3 grid-cols-2 lg:grid-cols-4">
-  {#each $pokemons as pokemon}
-  <PokemonCard pokemon={pokemon}/>
+  {#each filteredPokemon as pokemon}
+    <PokemonCard pokemon={pokemon}/>
   {/each}
 </div>
 <style>
