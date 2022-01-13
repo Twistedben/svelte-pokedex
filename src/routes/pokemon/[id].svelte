@@ -20,9 +20,24 @@
 </script>
 <script>
   export let pokemon;
-  const name = pokemon.name;
+
+  const {name, height, weight, sprites} = pokemon;
   const type = pokemon.types[0].type.name
 
 </script>
-<h1 class="text-4xl text-center my-8">{name}</h1>
-{type}
+<div class="flex flex-col items-center mb-8">
+  <h1 class="text-4xl text-center my-4 capitalize">{name}</h1>
+  <img src={sprites["front_default"]} alt={name}>
+  <p>
+    <b>
+      Type:
+    </b>
+    {type}
+    <br>
+    <b>Height:</b>
+    {height}
+    <br>
+    <b>Weight:</b>
+    {weight}
+  </p>
+</div>
