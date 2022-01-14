@@ -1,6 +1,23 @@
+<script context="module">
+  export async function load({params, fetch}) {
+    const url = "https://pokeapi.co/api/v2/pokemon?limit=150";
+    const res = await fetch(url);
+    const data = await res.json(); 
+    const loadedPokemon = data.results.map((data, i) => {
+    
+      return {
+        id: i + 1,
+        name: data.name,
+        imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i + 1}.png`
+      };
+    });
+    return {props: {pokemons: loadedPokemon}}
+  }
+</script>
 <script>
-  import {pokemon as pokemons} from "../stores/pokestore";
   import PokemonCard from "../components/pokemonCard.svelte";
+
+  export let pokemons;
 
   let searchTerm = "";
   let filteredPokemon = [];
@@ -8,9 +25,9 @@
   $: {
     console.log(searchTerm)
     if (searchTerm) {
-      filteredPokemon = $pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()));
+      filteredPokemon = pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()));
     } else {
-      filteredPokemon = [...$pokemons]
+      filteredPokemon = [...pokemons]
     }
 
   }
