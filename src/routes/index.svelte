@@ -47,7 +47,6 @@
     placeholder="Search Pokemon" 
     class="rounded-lg p-4 mx-2 focus:outline-transparent focus:bg-yellow-100 focus:shadow-sm focus:border-yellow-500 transition-colors ease-linear duration-300 w-full border-2 border-yellow-400"
   >
-  <input type="integer" bind:value={amount}>
 </label>
 
 <div class="py-2 grid gap-x-2 gap-y-6 md:grid-cols-3 grid-cols-2 lg:grid-cols-4">
